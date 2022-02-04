@@ -1,0 +1,32 @@
+server:
+  port: 28080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  shutdown: graceful
+spring:
+  profiles:
+    active: local
+
+schedule:
+  message:
+    sleep-member: "0 0 10 * * *"
+    adv-end: "0 0 11 * * *"
+    withdrawal-member: "0 0 14 * * *"
+  account:
+    sleep-member: "0 0 1 * * *"
+    withdrawal-member: "0 0 2 * * *"
+  media:
+    convert: "0 0 2 * * *"
+  adv:
+    broadcasting: "0 0 3 * * *"
+
+# timezone
+timezone: "Asia/Seoul"
+
+notification:
+  alimtalk-api-host: "https://rest.surem.com/alimtalk/v2/json"
+  sms-api-host: "https://rest.surem.com/sms/v1/json"
+  lms-api-host: "https://rest.surem.com/lms/v1/json"

@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    hikari:
+      username: ODDI_APP
+      password: "app21_oddiXX"
+      pool-name: oddi-cp
+      max-lifetime: 12000
+      connection-test-query: select now()
+      minimum-idle: 2
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: "jdbc:mysql://rds-an2-oddiad-prd-mysql.ca3pv7invojs.ap-northeast-2.rds.amazonaws.com:3310/oddi?characterEncoding=utf8&useSSL=false"
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults=false: false
+      globally_quoted_identifiers: true
+logging:
+  config: classpath:logback-op.xml
+
+
+notification:
+  id: "oddiad"
+  dept-code: "PF-1ST-QC"
+  kakao-yellow-key: "d4ad09cb582220ab779510f1fc0bb2cc2c119243"
+  sender-phone: "01075633127"
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false
+      multiline: false
